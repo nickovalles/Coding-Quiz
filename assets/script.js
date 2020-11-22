@@ -73,6 +73,10 @@ var questions = [
 
 
 // ALL THE EVENT LISTENERS
+startButton.addEventListener('click', beingQuiz);
+highscores.addEventListener('click', highScores);
 
 
-
+// Notes
+// Check why all the text keeps getting centered and the event listener isn't working
+// open console log next push
