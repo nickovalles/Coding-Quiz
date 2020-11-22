@@ -92,10 +92,10 @@ function countdown() {
 
 // BEGIN QUIZ
 
-function startQuiz() {
+function beginQuiz() {
     // Start the timer at 75 seconds (the mock up says 75 so yeah?)
-    timerSecs = 75;
-    timer.textContent = timerSecs;
+    timerSeconds = 75;
+    timer.textContent = timerSeconds;
 
     // Starting Countdown Timer Clock
     countdown();
@@ -110,6 +110,10 @@ function startQuiz() {
 
 }
 
+function nextQuestion() {
+
+}
+
 // QUESTIONS SECTION 2 (correct or incorrect)
 
 // CONCLUDE QUIZ
@@ -121,7 +125,7 @@ function startQuiz() {
 
 
 // ALL THE EVENT LISTENERS
-startButton.addEventListener('click', beingQuiz);
+startButton.addEventListener('click', beginQuiz);
 highscores.addEventListener('click', highScores);
 
 
