@@ -213,7 +213,21 @@ function endQuiz() {
 
 // High Scores Section (figure out how to save stuff. localStorage)
 
-// localStorage(own section???)
+// localStorage(own section???) - loading high score
+
+function loadHighScore() {
+
+    // Local storage... check bootcampspot or w3/mdn for Parse info
+    savedScores = parse(localStorage.getItem('score'));
+
+    // score Arr (array)
+    if (savedScores !== null) {
+        scoreArr = savedScores;
+
+        // Return score array now
+        return scoreArr;
+    }
+}
 
 
 
