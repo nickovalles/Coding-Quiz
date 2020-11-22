@@ -6,36 +6,46 @@
     <meta http-equiv="X-UA-Compatiable" content="ie-edge">
     <link rel="stylesheet" href="./assets/style/style.css"/>
     <!-- Creative Title Here -->
-    <title>Coding Quiz Challenge!</title>
+    <title>Coding Quiz Challenge</title>
 </head>
 
 <body>
 
     <!-- Quiz Section -->
-    <div>
-        <div></div>
-        <p>
-            <!-- Insert text here -->
+    <div id="quiz-container" class="center-text">
+        <!--Intro screen -->
+        <div id="quiz-title" class="title">Coding Quiz Challenge</div>
+        <p id="text">
+            <!-- Insert text here, make it pop -->
             Challenge yourself by answering the code-related questions within the time limit. REMEMBER: wrong answers will take 10 seconds off your remaing time! Good Luck! 
         </p>
-        <button></button>
-        <div>
-            <!-- 5 Question Quiz (if you have time, make more) -->
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
+            
+        <button id="begin-quiz" class="begin">Start Quiz</button>
+        <div id="quiz-answers">
+            <button class="answer-button"></button>
+            <button class="answer-button"></button>
+            <button class="answer-button"></button>
+            <button class="answer-button"></button>
         </div>
-        <div></div>
-        <!-- HTML for answer section? -->
-        <div>
-
+        <div id="button-response"></div>
+        <div id="input-user">
+            <label for="initials">Enter Initials:</label>
+            <input type="text" name="initials" id="initials" placeholder="ex. GCD" />
+            <button id="submit-button">Submit</button>
         </div>
     </div>
 
 
-    <!-- High Score Section -->
+    <!-- High Score Section and Timer (Put after in the nav) -->
+
+    <nav>
+        <a href id="highscores-nav">View Highscores Here!</a>
+
+        <div id="timer" class="float-right">
+            <!-- Test this out -->
+            Time: 0
+        </div>
+    </nav>
 
     <!-- Footer? No.. -->
 
