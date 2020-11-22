@@ -19,18 +19,7 @@ var submitUserInfo = document.getElementById('submit-button');
 
 
 // Question Section (Arrays, switches, brainstorm on whiteboard)
-
-// Score Section PreWork
-
-// Time/Countdown Clock to be displayed to User
-
-// Display Issues
-
-// BEGIN QUIZ
-
-// QUESTIONS SECTION 2 (correct or incorrect)
 // Put arrays here! (Brainstorm questions)
-
 var questions = [
     {
         //Questions 1 (Answer is #4)
@@ -63,6 +52,17 @@ var questions = [
         answer: '4. Document Object Model'
     }
 ];
+
+// Score Section PreWork
+
+// Time/Countdown Clock to be displayed to User
+
+// Display Issues
+
+// BEGIN QUIZ
+
+// QUESTIONS SECTION 2 (correct or incorrect)
+
 
 // CONCLUDE QUIZ
 
