@@ -213,6 +213,36 @@ function endQuiz() {
 
 // High Scores Section (figure out how to save stuff. localStorage)
 
+// SAVING HIGH SCORE
+function saveHighScore(event) {
+
+    event.preventDefault();
+
+    // no info no nothing
+    if (initials.value.length === 0) {
+        return
+
+    // ELSE - save high score    
+    } else {
+        newScore = {
+            userName: initials.value.trim(),
+            userScore: score
+        };
+        scoreArr.push(newScore);
+
+        // Sort to the Top
+        scoreArr.sort((a, b) => b.userScore - a.userScore);
+
+        // make array a string 
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify (future reference)
+
+        localStorage.setItem('score', JSON.stringify(scoreArr));
+
+        // take user to high scores
+        highScores();
+    }
+}
+
 // localStorage(own section???) - loading high score
 
 function loadHighScore() {
@@ -229,10 +259,76 @@ function loadHighScore() {
     }
 }
 
+// VIEWING HIGH SCORE
+
+function loadHighScore() {
+
+    // parse string value from local storage into new array
+    savedScores = JSON.parse(localStorage.getItem('score'));
+
+    // if there are no saved scores then save into score array
+    if (savedScores !== null) {
+        scoreArr = savedScores;
+
+        // return new score array value
+        return scoreArr;
+    }
+}
+
+// LOAD SCORES from localStore
+function highScores() {
+    event.preventDefault();
+    // clears timeInterval
+    if (timerInterval) {
+        clearInterval(timerInterval);
+    };
+
+    // New List Section -> check HTML notes
+    var ol = document.createElement('ol');
+    var returnButton = document.createElement('button');
+    var clearButton = document.createElement('button');
+    returnButton.textContent = 'Go Back';
+    clearButton.textContent = 'Clear High Scores';
+    quizContainer.appendChild(ol);
+    quizContainer.appendChild(returnButton);
+    quizContainer.appendChild(clearButton);
+
+    // Removes other elements not associated
+    startButton.style.display = 'none';
+    nav.style.visibility = 'hidden';
+    quizTitle.textContent = 'High Scores';
+    text.textContent = '';
+    quizAnswers.style.display = 'none';
+    userInput.style.display = 'none';
+
+    // Sort list
+
+    for (i = 0; i < scoreArr.length; i++) {
+        var score = scoreArr[i].userName + ' : ' + scoreArr[i].userScore;
+
+        li = document.createElement('li');
+        li.textContent = score;
+        ol.appendChild(li);
+    }
+
+    // Event Listener
+    returnButton.addEventListener('click', function() {
+        location.href = 'index.html'
+    });
+
+    clearButton.addEventListener('click', function() {
+        localStorage.clear();
+        ol.innerHTML = '';
+    });
+};
+
+
+loadHighScore();
+
 
 
 // ALL THE EVENT LISTENERS
 startButton.addEventListener('click', beginQuiz);
-//highscores.addEventListener('click', highScores);
+highscores.addEventListener('click', highScores);
 
 
