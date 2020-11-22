@@ -136,9 +136,9 @@ function checkAnswer(event) {
 
     // if CORRECT answer is chosen, inform user it's correct, increase score and current question
     if (event.target.textContent === questions[currentQuestion].answer) {
-        //answerResponse.style.display = 'block';
+        answerResponse.style.display = 'block';
         answerResponse.textContent = 'Correct!';
-        // answerResponse.className = 'answer-response';
+        answerResponse.className = 'answer-response';
         currentQuestion++;
         score++;
 
@@ -162,25 +162,25 @@ function checkAnswer(event) {
         currentQuestion++;
         answerResponse.style.display = 'block';
         answerResponse.textContent = 'Incorrect!';
-        // answerResponse.className = 'answer-response';
+        answerResponse.className = 'answer-response';
 
-        // answer response will disappear after set time
+        // Answer response will disppear
         setTimeout(function() {
             answerResponse.style.display = 'none';
         }, 800);
 
-        // end game if timer is less than 10 seconds, since the user gets deducted 10 from score for incorrect answers
+        // End game if < 10 secs
         if (timerSeconds < 10) {
             timerSeconds -= 10;
             // call end quiz
             endQuiz;
 
-        // else end game if user is on question 5
+        // End game if question 5
         } else if (currentQuestion === 5) {
             // call end quiz
             endQuiz();
         
-        // else subtract time from timer and move to next question
+        // Subtract Time a move to the next
         } else {
             timerSeconds -= 10;
             nextQuestion();
@@ -189,6 +189,27 @@ function checkAnswer(event) {
 };
 
 // CONCLUDE QUIZ
+
+function endQuiz() {
+
+    // Move to display end game
+    quizAnswers.style.display = 'none';
+    text.textContent = "Your final score is " + score + ".";
+    userInput.style.display = 'block';
+
+    // let the user know they ran out of time or that the quiz is over
+    if (timerSeconds <= 0) {
+        quizTitle.textContent = 'You ran out of time!';
+    } 
+    
+    else {
+        quizTitle.textContent = "Quiz Over!";
+    }
+
+    // user input with initials
+    submitUserInfo.addEventListener('click', saveHighScore);
+
+}
 
 // High Scores Section (figure out how to save stuff. localStorage)
 
@@ -201,6 +222,3 @@ startButton.addEventListener('click', beginQuiz);
 //highscores.addEventListener('click', highScores);
 
 
-// Notes
-// Check why all the text keeps getting centered and the event listener isn't working
-// open console log next push

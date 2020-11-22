@@ -1,9 +1,10 @@
 .center-text {
     text-align: center;
     padding: 50px 700px;
-    flex-wrap: wrap;
     font-family: Verdana;
 }
+
+
 
 nav {
     padding: 30px 300px;
