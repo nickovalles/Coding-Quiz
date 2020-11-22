@@ -19,18 +19,98 @@ var submitUserInfo = document.getElementById('submit-button');
 
 
 // Question Section (Arrays, switches, brainstorm on whiteboard)
-
+var questions = [
+    {
+        //Questions 1 (Answer is #4)
+        question: 'What is NOT a math method?: ',
+        choices: ['1. Math.PI()', '2. Math.max()', '3. Math.sqrt()', '4. Math.cover()'],
+        answer: '4. Math.cover()'
+    },
+    {
+        // Question 2 (Answer is #1)
+        question: 'Math.random() method is always 0 to 1, but never actually _______. ',
+        choices: ['1. 1', '2. 0', '3. None of these', '4. Both of these'],
+        answer: '1. 1'
+    },
+    {
+        // Question 3 (Answer is #3)
+        question: '______ is a fall back condition in case "if" does not work or is false. ',
+        choices: ['1. "Else" ', '2. "Arrays"', '3. "Else if" ', '4. All of the Above'],
+        answer: '3. "Else if" '
+    },
+    {
+        // Question 4 (Answer is #2)
+        question: 'What is NOT a data type?',
+        choices: ['1. string', '2. console.log', '3. boolean', '4. number'],
+        answer: '2. console.log'
+    },
+    {
+        // Question 5 (Answer is #4)
+        question: 'DOM stands for: ',
+        choices: ['1. Document Opportunity Mean', '2. Deploy Object Matter', '3. Decide Open Memory ' , '4. Document Object Model'],
+        answer: '4. Document Object Model'
+    }
+];
 
 // Score Section PreWork
 
 // Time/Countdown Clock to be displayed to User
 
+var score = 0;
+var scoreArr= [];
+var timerInterval = false;
+var timerSeconds = 0;
+var currentQuestion = 0;
+
+function countdown() {
+    // use interval function that counts down
+    timerInterval = setInterval(function() {
+        timerSeconds --;
+        timer.textContent = timerSeconds;
+
+        // if user runs out of time, alert and end game
+        if (timerSeconds < 1) {
+            timer.textContent = 0;
+            // call end quiz
+            endQuiz();
+
+            // clear timer
+            clearInterval(timerInterval);
+        };
+        
+        // clear timer if current question is 5
+        if (currentQuestion === 5) {
+            timer.textContent = timerSeconds;
+            clearInterval(timerInterval);
+        }
+        // 1000 for the proper second intervals (go to that w3 link)
+    }, 1000)
+
+}
+
 // Display Issues
 
 // BEGIN QUIZ
 
-// QUESTIONS SECTION 2 (correct or incorrect)
+function startQuiz() {
+    // Start the timer at 75 seconds (the mock up says 75 so yeah?)
+    timerSecs = 75;
+    timer.textContent = timerSecs;
 
+    // Starting Countdown Timer Clock
+    countdown();
+
+    // Proceed to next question
+    nextQuestion();
+
+    // Start button will go away once we start (double check eventListener)
+    beginButton.style.display = 'none';
+
+    userInput.style.display = 'none';
+
+}
+
+// QUESTIONS SECTION 2 (correct or incorrect)
 
 // CONCLUDE QUIZ
 
