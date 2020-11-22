@@ -4,7 +4,7 @@
 var startButton = document.getElementById('begin-quiz');
 var quizContainer = document.getElementById('quiz-container');
 var text= document.getElementById('text');
-//var timer = document.getElementById('timer');
+var timer = document.getElementById('timer');
 var nav = document.querySelector('nav');
 var highscores = document.getElementById('highscores-nav');
 
@@ -88,8 +88,6 @@ function countdown() {
 
 }
 
-// Display Issues
-
 // BEGIN QUIZ
 
 function beginQuiz() {
@@ -111,7 +109,25 @@ function beginQuiz() {
 }
 
 function nextQuestion() {
+    // Contents of the next page
+    quizTitle.textContent = 'Question ' + (currentQuestion + 1);
+    text.textContent = questions[currentQuestion].question;
 
+    // Answer blocks (confirm in html and css)
+    // REMINDER FOR ME: media query about screen size and border radius
+    quizAnswers.style.display = 'block';
+
+    // Assigning answer buttons to choices
+    // check notes for reminder about numbers (indexes)
+    answerButton[0].textContent = questions[currentQuestion].choices[0];
+    answerButton[1].textContent = questions[currentQuestion].choices[1];
+    answerButton[2].textContent = questions[currentQuestion].choices[2];
+    answerButton[3].textContent = questions[currentQuestion].choices[3];
+
+    // eventListener for Answer Button(click, and confirm)
+    for (i = 0; i < answerButton.length; i++) {
+        answerButton[i].addEventListener('click', checkAnswer);
+    }
 }
 
 // QUESTIONS SECTION 2 (correct or incorrect)
