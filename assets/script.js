@@ -12,7 +12,7 @@ var highscores = document.getElementById('highscores-nav');
 var quizTitle = document.getElementById('quiz-title');
 var quizAnswers = document.getElementById('quiz-answers');
 var answerButton = document.getElementsByClassName('answer-button');
-var answerResponse = document.getElementById('answer-response');
+var answerResponse = document.getElementById('button-response');
 var userInput = document.getElementById('input-user');
 var initials = document.getElementById('initials');
 var submitUserInfo = document.getElementById('submit-button');
@@ -102,7 +102,7 @@ function beginQuiz() {
     nextQuestion();
 
     // Start button will go away once we start (double check eventListener)
-    beginButton.style.display = 'none';
+    startButton.style.display = 'none';
 
     userInput.style.display = 'none';
 
@@ -132,6 +132,62 @@ function nextQuestion() {
 
 // QUESTIONS SECTION 2 (correct or incorrect)
 
+function checkAnswer(event) {
+
+    // if CORRECT answer is chosen, inform user it's correct, increase score and current question
+    if (event.target.textContent === questions[currentQuestion].answer) {
+        //answerResponse.style.display = 'block';
+        answerResponse.textContent = 'Correct!';
+        // answerResponse.className = 'answer-response';
+        currentQuestion++;
+        score++;
+
+        // answer response will disappear after set time
+        setTimeout(function(){
+            answerResponse.style.display = 'none';
+        }, 800);
+
+        // end game if user is currently on question 5
+        if (currentQuestion === questions.length) {
+            // call end quiz
+            endQuiz();
+          
+        // else go to next question    
+        } else {
+            nextQuestion();
+        };
+
+    // else if answer chosen is INCORRECT decrease timer and increase current question
+    } else {
+        currentQuestion++;
+        answerResponse.style.display = 'block';
+        answerResponse.textContent = 'Incorrect!';
+        // answerResponse.className = 'answer-response';
+
+        // answer response will disappear after set time
+        setTimeout(function() {
+            answerResponse.style.display = 'none';
+        }, 800);
+
+        // end game if timer is less than 10 seconds, since the user gets deducted 10 from score for incorrect answers
+        if (timerSeconds < 10) {
+            timerSeconds -= 10;
+            // call end quiz
+            endQuiz;
+
+        // else end game if user is on question 5
+        } else if (currentQuestion === 5) {
+            // call end quiz
+            endQuiz();
+        
+        // else subtract time from timer and move to next question
+        } else {
+            timerSeconds -= 10;
+            nextQuestion();
+        };
+    }
+};
+
 // CONCLUDE QUIZ
 
 // High Scores Section (figure out how to save stuff. localStorage)
@@ -142,7 +198,7 @@ function nextQuestion() {
 
 // ALL THE EVENT LISTENERS
 startButton.addEventListener('click', beginQuiz);
-highscores.addEventListener('click', highScores);
+//highscores.addEventListener('click', highScores);
 
 
 // Notes
