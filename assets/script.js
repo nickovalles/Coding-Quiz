@@ -1,5 +1,23 @@
 // Create Variables Here
 
+    // Settings/Starting/Ending/Scores
+var startButton = document.getElementById('begin-quiz');
+var quizContainer = document.getElementById('quiz-container');
+var text= document.getElementById('text');
+//var timer = document.getElementById('timer');
+var nav = document.querySelector('nav');
+var highscores = document.getElementById('highscores-nav');
+
+    //Game Play Settings/User Info/Other
+var quizTitle = document.getElementById('quiz-title');
+var quizAnswers = document.getElementById('quiz-answers');
+var answerButton = document.getElementsByClassName('answer-button');
+var answerResponse = document.getElementById('answer-response');
+var userInput = document.getElementById('input-user');
+var initials = document.getElementById('initials');
+var submitUserInfo = document.getElementById('submit-button');
+
+
 // Question Section (Arrays, switches, brainstorm on whiteboard)
 
 // Score Section PreWork
