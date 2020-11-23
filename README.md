@@ -14,10 +14,11 @@ The site has a codebase that follows accessibility standards so that it is optim
 
 ## Images
 
-![picture](assets/images/main-page.png)Main Page Screenshot
-![picture](assets/images/question-2.png)Question Display Screenshot
-![picture](assets/images/quiz-over.png)Quiz Over Screenshot
-![picture](assets/images/high-scores.png)High Scores Screenshot
+![picture](./assets/images/main-page.png)Main Page Screenshot
+![picture](./assets/images/question-2.png)Question Display Screenshot
+![picture](./assets/images/quiz-over.png)Quiz Over Screenshot
+![picture](./assets/images/high-scores.png)High Scores Screenshot
+
 
 
 ## Links
