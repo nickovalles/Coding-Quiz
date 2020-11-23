@@ -1,5 +1,5 @@
 # Coding-Quiz
-# Created by Nicolas Ovalles
+## Created by Nicolas Ovalles
 
 ## Coding Quiz!
 -----
