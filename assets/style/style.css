@@ -1,10 +1,15 @@
+#text {
+    text-emphasis: center;
+    position: relative;
+}
+
+
+
 .center-text {
     text-align: center;
     padding: 50px 700px;
     font-family: Verdana;
 }
-
-
 
 nav {
     padding: 30px 300px;
@@ -20,6 +25,8 @@ nav {
     font-size: 30px;
     font-weight: bold;
 }
+
+
 
 .answer-button, .begin, .submit-button {
     background-color: purple;

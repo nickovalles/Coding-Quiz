@@ -17,6 +17,10 @@ var userInput = document.getElementById('input-user');
 var initials = document.getElementById('initials');
 var submitUserInfo = document.getElementById('submit-button');
 
+// hide userInput and quiz answers from main page
+userInput.style.display = 'none';
+quizAnswers.style.display = 'none';
+
 
 // Question Section (Arrays, switches, brainstorm on whiteboard)
 var questions = [
