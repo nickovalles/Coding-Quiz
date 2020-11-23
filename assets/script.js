@@ -17,7 +17,7 @@ var userInput = document.getElementById('input-user');
 var initials = document.getElementById('initials');
 var submitUserInfo = document.getElementById('submit-button');
 
-// hide userInput and quiz answers from main page
+// Hide userInput and quizAnswers from the main view page 
 userInput.style.display = 'none';
 quizAnswers.style.display = 'none';
 
